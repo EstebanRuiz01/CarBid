@@ -1,0 +1,128 @@
+/* ===== Variables (puedes ajustar colores/tonos) ===== */
+:root{
+  --bg-dark: #0d0d0d;             /* fondo general */
+  --brown-rgb: 48, 38, 28;        /* base marrón (RGB) */
+  --panel-opacity: 0.82;          /* opacidad del panel */
+  --panel-border: rgba(255,255,255,.12);
+  --txt: #f6f3ef;                 /* texto claro */
+  --muted: #dcd7d1;               /* labels/ayuda */
+  --primary: #c44536;             /* botón principal (bordó) */
+  --primary-hover: #d45a4c;
+  --input-bg: #ffffff;            /* fondo input */
+  --input-border: rgba(0,0,0,.18);
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+
+/* ===== Lienzo y fondo de la página ===== */
+.register {
+  background: url("/imagen/register.png") center/cover no-repeat fixed;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--txt);
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Overlay para mejorar contraste sobre la foto */
+.register::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,.58),
+    rgba(0,0,0,.38)
+  );
+}
+/* ===== Panel (card translúcido) ===== */
+.register-card{
+  position: relative;
+  z-index: 1;
+  width: min(560px, 92vw);
+  padding: clamp(22px, 4vw, 36px);
+  border-radius: 22px;
+  background: rgba(var(--brown-rgb), var(--panel-opacity));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+}
+
+/* Cabecera: ícono + título */
+.register-head{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.register-icon{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  display: grid; place-items: center;
+  font-size: 22px;
+}
+.register-title{
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+/* ===== Formulario ===== */
+.register-form{
+  display: grid;
+  grid-template-columns: 1fr;     /* columna única */
+  gap: 14px;
+}
+
+.register-label{
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.register-input{
+  display: block;                 /* evita que se pongan en línea */
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  padding: 0 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: #1b1b1b;
+  outline: none;
+  transition: box-shadow .2s, border-color .2s, transform .02s;
+}
+.register-input::placeholder{ color: #8a8a8a; }
+.register-input:focus{
+  border-color: #b08968;
+  box-shadow: 0 0 0 3px rgba(176,137,104,.25);
+}
+.register-input:active{ transform: translateY(0.5px); }
+
+/* Agrupar campos lado a lado en pantallas grandes */
+.register-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ===== Botones ===== */
+.register-actions{
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn{
+  display: inline-grid;
+  place-items: center;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}

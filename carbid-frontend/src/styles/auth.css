@@ -1,0 +1,194 @@
+/* ======== Paleta (ajústala si lo deseas) ======== */
+:root {
+  --bg-dark: #111;
+  /* fondo general */
+  --panel-brown: #5E503F;
+  /* marrón oscuro base (en RGB) */
+  --panel-opacity: 0.92;
+  /* opacidad del panel */
+  --panel-border: rgba(255, 255, 255, .12);
+  --text: #F2F4F3;
+  /* texto claro */
+  --font-family: Noto Sans, sans-serif;
+  --muted: #F2F4F3;
+  /* labels / texto tenue */
+  --btn: #F2F4F3;
+  /* acción principal (bordó) */
+  --btn-hover: #F2F4F3;
+  --input-bg: rgba(255, 255, 255, .95);
+  --input-border: rgba(0, 0, 0, .15);
+  --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+/* ======== Lienzo y fondos ======== */
+.auth {
+  min-height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--bg-dark);
+  color: var(--text);
+  font-family: var(--font-family);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ajusta las rutas a tus imágenes en /public/images/ */
+.auth--login {
+  background: url("/imagen/login.png") center/cover no-repeat fixed;
+}
+
+.auth--register {
+  background: url("/images/register.png") center/cover no-repeat fixed, var(--bg-dark);
+}
+
+/* Overlay para mejorar legibilidad sobre la foto */
+.auth::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, .55),
+      rgba(0, 0, 0, .35));
+}
+
+/* ======== Panel (glass marrón) ======== */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: min(540px, 92vw);
+  padding: clamp(20px, 4vw, 36px);
+  border-radius: 20px;
+  background: rgba(var(--panel-brown), var(--panel-opacity));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+}
+
+/* Header del card (icono + título opcional) */
+.auth-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.auth-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.auth-card__title {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+}
+
+/* ======== Form ======== */
+.auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.auth-input {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  padding: 0 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: #222;
+  outline: none;
+  transition: box-shadow .2s, border-color .2s, transform .02s;
+}
+
+.auth-input:focus {
+  border-color: #b08968;
+  box-shadow: 0 0 0 3px rgba(176, 137, 104, .25);
+}
+
+.auth-input:active {
+  transform: translateY(0.5px);
+}
+
+/* ======== Botones ======== */
+.btn {
+  display: inline-grid;
+  place-items: center;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .06s ease, filter .2s ease, background .2s;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--btn);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--btn-hover);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, .06);
+}
+
+/* Fila de acciones (Login/Register) */
+.auth-actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Texto auxiliar (cambiar a link) */
+.auth-help {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.auth-link {
+  color: #F2F4F3;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* ======== Responsivo ======== */
+@media (max-width: 520px) {
+  .auth-card {
+    width: min(460px, 94vw);
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+}
