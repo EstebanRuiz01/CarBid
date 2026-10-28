@@ -18,7 +18,7 @@ CarBid is a web application for **online vehicle auctions**. Users can explore v
 
 ## 🎬 Demo
 
-- 📺 **Video demonstration:** [Watch on YouTube](YOUR_YOUTUBE_VIDEO_URL)
+- 📺 **Video demonstration:** [Watch on YouTube](https://youtu.be/7CYIGReihvI)
 - 💻 **GitHub repository:** [EstebanRuiz01/CarBid](https://github.com/EstebanRuiz01/CarBid)
 
 ## 🛠️ Technologies
